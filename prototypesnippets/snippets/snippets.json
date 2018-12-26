@@ -16,7 +16,7 @@
             "// ACTIONS",
             "",
             "interface DefaultAction extends Action {",
-            "    type: \"DEFAULT\";",
+            "  type: \"DEFAULT\";",
             "}",
             "",
             "type ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/${1:/capitalize}/}Actions = DefaultAction;",
@@ -24,20 +24,41 @@
             "// CREATORS",
             "",
             "export const createDefault = () : DefaultAction => ({",
-            "    type: \"DEFAULT\",",
+            "  type: \"DEFAULT\",",
             "})",
             "",
             "// REDUCER",
             "",
             "const ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/}Reducer : Reducer<${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/${1:/capitalize}/}State | undefined, AnyAction> = (state : ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/${1:/capitalize}/}State | undefined = defaultState, action : ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/${1:/capitalize}/}Actions) => {",
-            "    switch (action.type) {",
-            "        default:",
-            "            return state;",
-            "    }",
+            "  switch (action.type) {",
+            "      default:",
+            "          return state;",
+            "  }",
             "}",
             "",
             "export default ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/}Reducer;"            
         ],
         "description": "Reducer"
+    },
+    "Shallow_Action" : {
+        "prefix": "actionflat",
+        "description": "",
+        "body": [
+            "interface $1Action extends Action {",
+            "  type: \"$2\";",
+            "}"
+        ]
+    },
+    "Payload_Action" : {
+        "prefix": "actionpayload",
+        "description": "",
+        "body": [
+            "interface $1Action extends Action {",
+            "  type: \"$2\";",
+            "  payload: {",
+            "    $3: $4;",
+            "  }",
+            "}"
+        ]
     }
 }
