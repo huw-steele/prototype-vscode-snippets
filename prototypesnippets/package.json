@@ -1,6 +1,7 @@
 {
     "name": "prototypesnippets",
     "displayName": "PrototypeSnippets",
+    "publisher": "huw-steele",
     "description": "",
     "version": "0.0.1",
     "engines": {
